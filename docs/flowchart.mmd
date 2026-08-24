@@ -1,0 +1,31 @@
+flowchart TD
+    steam(["Steam publish"]):::milestone --> atlas["Project Atlas"]:::hub
+    atlas --> itch(["Itch.io publish"]):::milestone
+    atlas --> mvp(["MVP"]):::milestone
+
+    itch --> obstacles["obstacle destruction and wall materials"]:::task
+    obstacles --> soundprop["sound propagation"]:::task
+
+    mvp --> A
+
+    subgraph mvpGroup ["MVP"]
+        direction TB
+        A["character (circle sprite) moving around area with camera follow"]:::task --> B
+        B["radial aiming and shooting (bullet sprite can just be a smaller circle)"]:::task --> C
+        C["mob (circle sprite) with a hurtbox taking damage from the bullets"]:::task --> D
+        D["mob attacks and player (shooting also) hurtbox to take damage"]:::task --> E
+        E["tweening knockback"]:::task --> F
+        F["enemy LOS triggering activity"]:::task --> G
+        G["enemy tracking player"]:::task --> H
+        H["map with obstacles"]:::task --> I
+        I["mobs spawning randomly around map"]:::task --> J
+        J["mobs dropping item (will later be the items for the inventory)"]:::task --> K
+        K["win condition: kill all mobs and pick up all dropped loot"]:::task
+
+        B -.-> polar["polar coordinates"]:::note
+    end
+
+    classDef hub stroke:#f6ad55,color:#f6ad55,stroke-width:2px
+    classDef milestone stroke:#4fd1c5,color:#4fd1c5,stroke-width:2px
+    classDef task stroke:#fc8181,color:#fc8181
+    classDef note stroke:#a0aec0,color:#a0aec0,stroke-dasharray: 4 3
