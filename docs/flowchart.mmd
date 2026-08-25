@@ -22,7 +22,33 @@ flowchart TD
         J["mobs dropping item (will later be the items for the inventory)"]:::task --> K
         K["win condition: kill all mobs and pick up all dropped loot"]:::task
 
+        A -.-> defPlayer["define player scene\n(CharacterBody2D)"]:::note
+        A -.-> defArena["define arena scene\n(TileMap + boundaries)"]:::note
+        A -.-> defCamera["Camera2D as child of player,\nposition smoothing on"]:::note
+
         B -.-> polar["polar coordinates"]:::note
+        B -.-> shootRadius["add shoot_radius attr\nto player (exported var)"]:::note
+        B -.-> defBullet["define bullet scene\n(Area2D, pooled not instanced per shot)"]:::note
+
+        C -.-> defMob["define mob scene\n(CharacterBody2D)"]:::note
+        C -.-> hurtbox["hurtbox as Area2D child,\nsignal on area_entered"]:::note
+
+        D -.-> healthAttr["health as exported var,\ndamage via signal not direct call"]:::note
+
+        E -.-> tweenNote["use create_tween(),\nnot manual lerp per frame"]:::note
+
+        F -.-> losNote["Area2D or RayCast2D\nfor line-of-sight check"]:::note
+        F -.-> stateMachine["enemy state machine\n(Idle / Chase / Attack)"]:::note
+
+        G -.-> navNote["NavigationAgent2D\nfor pathfinding around obstacles"]:::note
+
+        H -.-> tilemapNote["collision layers/masks\nper physics body type"]:::note
+
+        I -.-> spawnerNote["spawner uses Marker2D points\nor validated random position"]:::note
+
+        J -.-> lootNote["loot table as a Resource,\nitem as pickup Area2D scene"]:::note
+
+        K -.-> gmNote["GameManager autoload tracks\nmob_count/loot_count via signals"]:::note
     end
 
     classDef hub stroke:#f6ad55,color:#f6ad55,stroke-width:2px
