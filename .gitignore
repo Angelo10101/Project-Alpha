@@ -1,26 +1,39 @@
-# Godot 4+ specific ignores
+# ============================================
+# GODOT GENERATED (NEVER COMMIT)
+# ============================================
 .godot/
-.nomedia
+export_presets.cfg
+export_presets.cfg.backup
+*.import
 
-# Godot-specific ignores
-.import/
-export.cfg
-export_credentials.cfg
-*.tmp
+# ============================================
+# USER-SPECIFIC EDITOR CACHE (CRITICAL)
+# ============================================
+*.editor_settings
+*.script_editor_cache
+*.session
+*/.script_editor_cache/
+*/.editor_settings/
 
-# Imported translations (automatically generated from CSV files)
-*.translation
+# ============================================
+# OS JUNK FILES
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
 
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
+# ============================================
+# IDE / EDITOR FOLDERS
+# ============================================
+.vscode/
+.idea/
+*.iml
 
-export/
-build/
-*.log
-Build/
-bin/
-obj/
-*.translation
-.import/
+# ============================================
+# MONO / C# (If you use C#, uncomment these)
+# ============================================
+# .mono/
+# obj/
+# bin/
+# *.csproj
+# *.sln

@@ -1,0 +1,12 @@
+# Scenes and resources are text-based (if you use text format, which you should!)
+*.tscn text diff=gdscript
+*.tres text diff=gdscript
+
+# Textures and binary files - NEVER auto-merge
+*.png binary
+*.jpg binary
+*.wav binary
+*.ogg binary
+*.ttf binary
+*.fbx binary
+*.glb binary
