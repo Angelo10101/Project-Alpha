@@ -4,3 +4,6 @@ Top down extraction shooter
 # To view the flow chart in docs/
 Download official Mermaid extension in VSCode. Open the docs/flowchart.mmd file.
 In command pallette: `MermaidChart: Preview Diagram`
+
+
+# GODOT
