@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://icon.svg" id="1_icon"]
+[ext_resource type="Script" path="res://scripts/basic_stump_ml_mob.gd" id="2_script"]
+[ext_resource type="PackedScene" path="res://scenes/bullet.tscn" id="3_bullet"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mob"]
+size = Vector2(129, 128)
+
+[node name="Mob" type="CharacterBody2D"]
+script = ExtResource("2_script")
+bullet_scene = ExtResource("3_bullet")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mob")

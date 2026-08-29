@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Project-Alpha"
+run/main_scene="res://scenes/test_level.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MLController="*res://ai/inference/ml_controller.gd"
 
 [display]
 

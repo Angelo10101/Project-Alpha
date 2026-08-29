@@ -13,6 +13,8 @@ extends Node
 #   - build_observation(mob) -> PackedFloat32Array
 #   - get_action(observation) -> Vector2 (or whatever action space you used)
 
-func get_action(observation: PackedFloat32Array) -> Vector2:
-	push_warning("ml_controller.gd: get_action() not yet implemented")
-	return Vector2.ZERO
+func get_action(mob: Node, player_pos: Vector2) -> Dictionary:
+	var to_player = player_pos - mob.global_position
+	var move_dir = to_player.normalized() if to_player.length() > 60.0 else Vector2.ZERO
+	var should_shoot = to_player.length() < 400.0
+	return {"move": move_dir, "shoot": should_shoot}
