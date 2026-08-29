@@ -37,3 +37,5 @@ desktop.ini
 # bin/
 # *.csproj
 # *.sln
+
+*.uid
