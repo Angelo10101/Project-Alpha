@@ -1,0 +1,6 @@
+# Core RL training deps for godot-rl-agents
+godot-rl
+torch
+stable-baselines3[extra]
+onnx
+onnxruntime
