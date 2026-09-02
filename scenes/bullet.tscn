@@ -1,19 +1,19 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://4x3srp7d7mug"]
 
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://wmutfhcb1ega" path="res://scripts/bullet.gd" id="1_script"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bullet"]
 radius = 6.0
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" unique_id=1206229201]
 script = ExtResource("1_script")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1269125556]
 offset_left = -4.0
 offset_top = -4.0
 offset_right = 4.0
 offset_bottom = 4.0
 color = Color(1, 1, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=822031472]
 shape = SubResource("CircleShape2D_bullet")
