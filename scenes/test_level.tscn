@@ -1,12 +1,61 @@
 [gd_scene format=3 uid="uid://xr3jvc5sdsu4"]
 
-[ext_resource type="PackedScene" uid="uid://3ehf8p1lo3in" path="res://scenes/player.tscn" id="1_player"]
-[ext_resource type="PackedScene" path="res://scenes/basic_stump_ml_mob.tscn" id="2_mob"]
+[ext_resource type="PackedScene" uid="uid://dm72sw8w0ugeu" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://udujyrbw2usy" path="res://scenes/ray.tscn" id="3_j6w7d"]
 
-[node name="TestLevel" type="Node2D" unique_id=1472791270]
+[sub_resource type="RectangleShape2D" id="Shape_h"]
+size = Vector2(1040, 39)
 
-[node name="Player" parent="." unique_id=1384841052 instance=ExtResource("1_player")]
-position = Vector2(954, 466)
+[sub_resource type="RectangleShape2D" id="Shape_v"]
+size = Vector2(33, 600)
 
-[node name="Mob" parent="." unique_id=29231557 instance=ExtResource("2_mob")]
-position = Vector2(298, 92)
+[node name="TestLevel" type="Node2D" unique_id=191591246]
+
+[node name="Player" parent="." unique_id=697376332 instance=ExtResource("1_player")]
+position = Vector2(500, 300)
+ray_scene = ExtResource("3_j6w7d")
+ray_count = 500
+
+[node name="Room" type="StaticBody2D" parent="." unique_id=2006821436]
+
+[node name="Top" type="CollisionShape2D" parent="Room" unique_id=2063402573]
+position = Vector2(500, -0.5)
+shape = SubResource("Shape_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Room" unique_id=1880709204]
+position = Vector2(500, 610)
+shape = SubResource("Shape_h")
+
+[node name="Left" type="CollisionShape2D" parent="Room" unique_id=2023660697]
+position = Vector2(-3.5, 300)
+shape = SubResource("Shape_v")
+
+[node name="Right" type="CollisionShape2D" parent="Room" unique_id=342584466]
+position = Vector2(1010, 300)
+shape = SubResource("Shape_v")
+
+[node name="TopVis" type="ColorRect" parent="Room" unique_id=1657772384]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1020.0
+offset_bottom = 19.0
+color = Color(1, 0.157, 1, 1)
+
+[node name="BottomVis" type="ColorRect" parent="Room" unique_id=1586925349]
+offset_left = -20.0
+offset_top = 591.0
+offset_right = 1020.0
+offset_bottom = 620.0
+color = Color(1, 0.157, 1, 1)
+
+[node name="LeftVis" type="ColorRect" parent="Room" unique_id=583668257]
+offset_left = -20.0
+offset_right = 15.0
+offset_bottom = 600.0
+color = Color(1, 0.157, 1, 1)
+
+[node name="RightVis" type="ColorRect" parent="Room" unique_id=1710469974]
+offset_left = 994.0
+offset_right = 1020.0
+offset_bottom = 600.0
+color = Color(1, 0.157, 1, 1)

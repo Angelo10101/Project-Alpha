@@ -12,6 +12,24 @@ enum State {IDLE, RUN, ATTACK}
 var _state: State = State.IDLE
 var health: float = MAX_HEALTH
 
+@export var ray_scene: PackedScene
+@export var ray_count: int = 12
+@export var burst_k: int = 10
+
+func spawn_ray_burst() -> void:
+	var burst_id := EntityManager.new_burst_id()
+	for i in range(ray_count):
+		var ray = ray_scene.instantiate()
+		ray.direction = Vector2.RIGHT.rotated((TAU / ray_count) * i)
+		ray.burst_id = burst_id
+		get_tree().current_scene.add_child(ray)
+		ray.global_position = global_position
+		EntityManager.register_ray(ray)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("fire_burst"):
+		spawn_ray_burst()
+
 func _ready() -> void:
 	_player_sprite.animation_finished.connect(_on_animation_finished)
 

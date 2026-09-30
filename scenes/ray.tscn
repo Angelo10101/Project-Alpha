@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://udujyrbw2usy"]
+
+[ext_resource type="Script" uid="uid://bnbv6yjfdembn" path="res://scripts/ray.gd" id="1_dnltf"]
+
+[node name="Ray" type="Node2D" unique_id=143226372]
+script = ExtResource("1_dnltf")
+speed = null
+max_distance = null
+collision_mask = null
